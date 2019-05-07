@@ -1,0 +1,261 @@
+{
+    "title": "Firewall Management Service",
+    "description": "<fullname>AWS Firewall Manager</fullname> <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for developers who need detailed information about the AWS Firewall Manager API actions, data types, and errors. For detailed information about AWS Firewall Manager features, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html\">AWS Firewall Manager Developer Guide</a>.</p>",
+    "docsUrl": "https://aws.amazon.com/fms/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/fms/2018-01-01/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://fms.amazonaws.com/",
+                    "http://fms.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AssociateAdminAccount": {
+            "main": "./lib/actions/AssociateAdminAccount.js",
+            "title": "<p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with the master account your AWS organization or associated with a member account that has the appropriate permissions. If the account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the appropriate permissions for the given member account.</p> <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator account. </p>",
+            "description": "<p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with the master account your AWS organization or associated with a member account that has the appropriate permissions. If the account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the appropriate permissions for the given member account.</p> <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator account. </p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateAdminAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteNotificationChannel": {
+            "main": "./lib/actions/DeleteNotificationChannel.js",
+            "title": "Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+            "description": "Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteNotificationChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeletePolicy": {
+            "main": "./lib/actions/DeletePolicy.js",
+            "title": "Permanently deletes an AWS Firewall Manager policy. ",
+            "description": "Permanently deletes an AWS Firewall Manager policy. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeletePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateAdminAccount": {
+            "main": "./lib/actions/DisassociateAdminAccount.js",
+            "title": "Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different account as the administrator account, you must submit an <code>AssociateAdminAccount</code> request .",
+            "description": "Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different account as the administrator account, you must submit an <code>AssociateAdminAccount</code> request .",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateAdminAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAdminAccount": {
+            "main": "./lib/actions/GetAdminAccount.js",
+            "title": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager administrator.",
+            "description": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager administrator.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAdminAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetComplianceDetail": {
+            "main": "./lib/actions/GetComplianceDetail.js",
+            "title": "Returns detailed compliance information about the specified member account. Details include resources that are in and out of compliance with the specified policy. Resources are considered non-compliant if the specified policy has not been applied to them.",
+            "description": "Returns detailed compliance information about the specified member account. Details include resources that are in and out of compliance with the specified policy. Resources are considered non-compliant if the specified policy has not been applied to them.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetComplianceDetail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetNotificationChannel": {
+            "main": "./lib/actions/GetNotificationChannel.js",
+            "title": "Returns information about the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+            "description": "Returns information about the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetNotificationChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetPolicy": {
+            "main": "./lib/actions/GetPolicy.js",
+            "title": "Returns information about the specified AWS Firewall Manager policy.",
+            "description": "Returns information about the specified AWS Firewall Manager policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetPolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListComplianceStatus": {
+            "main": "./lib/actions/ListComplianceStatus.js",
+            "title": "Returns an array of <code>PolicyComplianceStatus</code> objects in the response. Use <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected by the specified policy. ",
+            "description": "Returns an array of <code>PolicyComplianceStatus</code> objects in the response. Use <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected by the specified policy. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListComplianceStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListMemberAccounts": {
+            "main": "./lib/actions/ListMemberAccounts.js",
+            "title": "<p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the administrator's AWS organization.</p> <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the AWS Firewall Manager administrator.</p>",
+            "description": "<p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the administrator's AWS organization.</p> <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the AWS Firewall Manager administrator.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListMemberAccounts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListPolicies": {
+            "main": "./lib/actions/ListPolicies.js",
+            "title": "Returns an array of <code>PolicySummary</code> objects in the response.",
+            "description": "Returns an array of <code>PolicySummary</code> objects in the response.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListPolicies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutNotificationChannel": {
+            "main": "./lib/actions/PutNotificationChannel.js",
+            "title": "Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.",
+            "description": "Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutNotificationChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutPolicy": {
+            "main": "./lib/actions/PutPolicy.js",
+            "title": "Creates an AWS Firewall Manager policy.",
+            "description": "Creates an AWS Firewall Manager policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutPolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

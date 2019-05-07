@@ -1,0 +1,190 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Policy": {
+                    "description": "The details of the AWS Firewall Manager policy to be created.",
+                    "properties": {
+                        "ExcludeMap": {
+                            "description": "<p>Specifies the AWS account IDs to exclude from the policy. The <code>IncludeMap</code> values are evaluated first, with all the appropriate account IDs added to the policy. Then the accounts listed in <code>ExcludeMap</code> are removed, resulting in the final list of accounts to add to the policy.</p> <p>The key to the map is <code>ACCOUNT</code>. For example, a valid <code>ExcludeMap</code> would be <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p>",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "enum": [
+                                            "ACCOUNT"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "items": {
+                                            "maxLength": 1024,
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "ExcludeResourceTags": {
+                            "description": "If set to <code>True</code>, resources with the tags that are specified in the <code>ResourceTag</code> array are not protected by the policy. If set to <code>False</code>, and the <code>ResourceTag</code> array is not null, only resources with the specified tags are associated with the policy.",
+                            "type": "boolean"
+                        },
+                        "IncludeMap": {
+                            "description": "<p>Specifies the AWS account IDs to include in the policy. If <code>IncludeMap</code> is null, all accounts in the organization in AWS Organizations are included in the policy. If <code>IncludeMap</code> is not null, only values listed in <code>IncludeMap</code> are included in the policy.</p> <p>The key to the map is <code>ACCOUNT</code>. For example, a valid <code>IncludeMap</code> would be <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p>",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "enum": [
+                                            "ACCOUNT"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "items": {
+                                            "maxLength": 1024,
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "PolicyId": {
+                            "description": "The ID of the AWS Firewall Manager policy.",
+                            "maxLength": 36,
+                            "minLength": 36,
+                            "type": "string"
+                        },
+                        "PolicyName": {
+                            "description": "The friendly name of the AWS Firewall Manager policy.",
+                            "maxLength": 128,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "PolicyUpdateToken": {
+                            "description": "A unique identifier for each update to the policy. When issuing a <code>PutPolicy</code> request, the <code>PolicyUpdateToken</code> in the request must match the <code>PolicyUpdateToken</code> of the current policy version. To get the <code>PolicyUpdateToken</code> of the current policy version, use a <code>GetPolicy</code> request.",
+                            "maxLength": 1024,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "RemediationEnabled": {
+                            "description": "Indicates if the policy should be automatically applied to new resources.",
+                            "type": "boolean"
+                        },
+                        "ResourceTags": {
+                            "description": "An array of <code>ResourceTag</code> objects.",
+                            "items": {
+                                "description": "The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an \"OR.\" That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html\">Working with Tag Editor</a>.",
+                                "properties": {
+                                    "Key": {
+                                        "description": "The resource tag key.",
+                                        "maxLength": 128,
+                                        "minLength": 1,
+                                        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                        "type": "string"
+                                    },
+                                    "Value": {
+                                        "description": "The resource tag value.",
+                                        "maxLength": 256,
+                                        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Key"
+                                ],
+                                "type": "object"
+                            },
+                            "maxItems": 8,
+                            "minItems": 0,
+                            "type": "array"
+                        },
+                        "ResourceType": {
+                            "description": "The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. Valid values are <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> or <code>AWS::CloudFront::Distribution</code>.",
+                            "maxLength": 128,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "SecurityServicePolicyData": {
+                            "description": "Details about the security service that is being used to protect the resources.",
+                            "properties": {
+                                "ManagedServiceData": {
+                                    "description": "<p>Details about the service. This contains <code>WAF</code> data in JSON format, as shown in the following example:</p> <p> <code>ManagedServiceData\": \"{\\\"type\\\": \\\"WAF\\\", \\\"ruleGroups\\\": [{\\\"id\\\": \\\"12345678-1bcd-9012-efga-0987654321ab\\\", \\\"overrideAction\\\" : {\\\"type\\\": \\\"COUNT\\\"}}], \\\"defaultAction\\\": {\\\"type\\\": \\\"BLOCK\\\"}}</code> </p>",
+                                    "maxLength": 1024,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "Type": {
+                                    "description": "The service that the policy is using to protect the resources. This value is <code>WAF</code>.",
+                                    "enum": [
+                                        "WAF"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Type"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "PolicyName",
+                        "SecurityServicePolicyData",
+                        "ResourceType",
+                        "ExcludeResourceTags",
+                        "RemediationEnabled"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Policy"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
