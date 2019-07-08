@@ -1,7 +1,7 @@
 {
     "name": "amazonaws-com-fms-connector",
     "version": "2018.0.0",
-    "description": "<fullname>AWS Firewall Manager</fullname> <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for developers who need detailed information about the AWS Firewall Manager API actions, data types, and errors. For detailed information about AWS Firewall Manager features, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html\">AWS Firewall Manager Developer Guide</a>.</p>",
+    "description": "AWS Firewall Manager This is the AWS Firewall Manager API Reference. This guide is for developers who\nneed detailed information about the AWS Firewall Manager API actions, data\ntypes, and errors. For detailed information about AWS Firewall Manager features,\nsee the AWS Firewall Manager Developer Guide\n[http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html].",
     "main": "component.json",
     "dependencies": {
         "elasticio-node": "0.0.9",

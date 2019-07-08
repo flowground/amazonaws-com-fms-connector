@@ -1,6 +1,6 @@
 {
     "title": "Firewall Management Service",
-    "description": "<fullname>AWS Firewall Manager</fullname> <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for developers who need detailed information about the AWS Firewall Manager API actions, data types, and errors. For detailed information about AWS Firewall Manager features, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html\">AWS Firewall Manager Developer Guide</a>.</p>",
+    "description": "AWS Firewall Manager This is the AWS Firewall Manager API Reference. This guide is for developers who\nneed detailed information about the AWS Firewall Manager API actions, data\ntypes, and errors. For detailed information about AWS Firewall Manager features,\nsee the AWS Firewall Manager Developer Guide\n[http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html].",
     "docsUrl": "https://aws.amazon.com/fms/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/fms/2018-01-01/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "AssociateAdminAccount": {
             "main": "./lib/actions/AssociateAdminAccount.js",
-            "title": "<p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with the master account your AWS organization or associated with a member account that has the appropriate permissions. If the account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the appropriate permissions for the given member account.</p> <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator account. </p>",
-            "description": "<p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with the master account your AWS organization or associated with a member account that has the appropriate permissions. If the account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the appropriate permissions for the given member account.</p> <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator account. </p>",
+            "title": "AssociateAdminAccount",
+            "description": "Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must\nbe associated with the master account your AWS organization or associated with a\nmember account that has the appropriate permissions. If the account ID that you\nsubmit is not an AWS Organizations master account, AWS Firewall Manager will set\nthe appropriate permissions for the given member account.\n\nThe account that you associate with AWS Firewall Manager is called the AWS\nFirewall Manager administrator account.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,7 +55,7 @@
         },
         "DeleteNotificationChannel": {
             "main": "./lib/actions/DeleteNotificationChannel.js",
-            "title": "Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+            "title": "DeleteNotificationChannel",
             "description": "Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "DeletePolicy": {
             "main": "./lib/actions/DeletePolicy.js",
-            "title": "Permanently deletes an AWS Firewall Manager policy. ",
+            "title": "DeletePolicy",
             "description": "Permanently deletes an AWS Firewall Manager policy. ",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "DisassociateAdminAccount": {
             "main": "./lib/actions/DisassociateAdminAccount.js",
-            "title": "Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different account as the administrator account, you must submit an <code>AssociateAdminAccount</code> request .",
+            "title": "DisassociateAdminAccount",
             "description": "Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different account as the administrator account, you must submit an <code>AssociateAdminAccount</code> request .",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "GetAdminAccount": {
             "main": "./lib/actions/GetAdminAccount.js",
-            "title": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager administrator.",
+            "title": "GetAdminAccount",
             "description": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager administrator.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "GetComplianceDetail": {
             "main": "./lib/actions/GetComplianceDetail.js",
-            "title": "Returns detailed compliance information about the specified member account. Details include resources that are in and out of compliance with the specified policy. Resources are considered non-compliant if the specified policy has not been applied to them.",
+            "title": "GetComplianceDetail",
             "description": "Returns detailed compliance information about the specified member account. Details include resources that are in and out of compliance with the specified policy. Resources are considered non-compliant if the specified policy has not been applied to them.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "GetNotificationChannel": {
             "main": "./lib/actions/GetNotificationChannel.js",
-            "title": "Returns information about the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+            "title": "GetNotificationChannel",
             "description": "Returns information about the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "GetPolicy": {
             "main": "./lib/actions/GetPolicy.js",
-            "title": "Returns information about the specified AWS Firewall Manager policy.",
+            "title": "GetPolicy",
             "description": "Returns information about the specified AWS Firewall Manager policy.",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "ListComplianceStatus": {
             "main": "./lib/actions/ListComplianceStatus.js",
-            "title": "Returns an array of <code>PolicyComplianceStatus</code> objects in the response. Use <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected by the specified policy. ",
+            "title": "ListComplianceStatus",
             "description": "Returns an array of <code>PolicyComplianceStatus</code> objects in the response. Use <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected by the specified policy. ",
             "fields": {
                 "verbose": {
@@ -191,8 +191,8 @@
         },
         "ListMemberAccounts": {
             "main": "./lib/actions/ListMemberAccounts.js",
-            "title": "<p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the administrator's AWS organization.</p> <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the AWS Firewall Manager administrator.</p>",
-            "description": "<p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the administrator's AWS organization.</p> <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the AWS Firewall Manager administrator.</p>",
+            "title": "ListMemberAccounts",
+            "description": "Returns a MemberAccounts object that lists the member accounts in the\nadministrator's AWS organization.\n\nThe ListMemberAccounts must be submitted by the account that is set as the AWS\nFirewall Manager administrator.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -208,7 +208,7 @@
         },
         "ListPolicies": {
             "main": "./lib/actions/ListPolicies.js",
-            "title": "Returns an array of <code>PolicySummary</code> objects in the response.",
+            "title": "ListPolicies",
             "description": "Returns an array of <code>PolicySummary</code> objects in the response.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "PutNotificationChannel": {
             "main": "./lib/actions/PutNotificationChannel.js",
-            "title": "Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.",
+            "title": "PutNotificationChannel",
             "description": "Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "PutPolicy": {
             "main": "./lib/actions/PutPolicy.js",
-            "title": "Creates an AWS Firewall Manager policy.",
+            "title": "PutPolicy",
             "description": "Creates an AWS Firewall Manager policy.",
             "fields": {
                 "verbose": {
